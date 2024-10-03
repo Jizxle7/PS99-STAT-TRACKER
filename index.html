@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stat Tracker Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input { padding: 10px; width: 200px; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Login to Your Stat Tracker</h1>
+    <input type="text" id="key" placeholder="Enter your key" />
+    <button onclick="login()">Login</button>
+    <div id="error" style="color: red; display: none;"></div>
+    <div id="stats" style="display:none;">
+        <h2>Your Stats</h2>
+        <div id="statData"></div>
+    </div>
+
+    <script>
+        // Example valid key for demonstration
+        const validKey = "YOUR_SECRET_KEY";
+
+        async function login() {
+            const key = document.getElementById("key").value;
+            const errorDiv = document.getElementById("error");
+            const statsDiv = document.getElementById("stats");
+            const statData = document.getElementById("statData");
+
+            if (key === validKey) {
+                errorDiv.style.display = "none";
+                statsDiv.style.display = "block";
+                // Fetch or display the user's stats here
+                statData.innerHTML = "<p>Your stats will be displayed here.</p>";
+            } else {
+                errorDiv.innerText = "Invalid key. Please try again.";
+                errorDiv.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
